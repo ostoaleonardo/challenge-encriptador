@@ -1,0 +1,125 @@
+:root {
+    --background-color: #F3F5FC;
+    --primary-color: #0A3871;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: red;
+}
+
+#input-section {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#output-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+#output {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+#buttons-section {
+    width: 100%;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons-section span {
+    border: none;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#buttons-section div {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 16px;
+    padding: 16px 96px;
+}
+
+button:hover {
+    scale: 1.05;
+    transition: all 0.15s;
+}
+
+
+#encrypt {
+    color: var(--background-color);
+    background-color: var(--primary-color);
+}
+
+#decrypt {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: rgba(10, 56, 113, 0.1);
+}
+
+#invert {
+    padding: 16px 32px;
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    padding: 2rem 0;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+footer span {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
