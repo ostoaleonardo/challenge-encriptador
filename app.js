@@ -48,11 +48,25 @@ const decrypt = (text) => {
         .replace(/ai|enter|imes|ober|ufat/g, match => KEYS_REVERSE[match])
 }
 
+const validateInput = (text) => {
+    if (!text) {
+        window.alert('Ingrese un texto para encriptar o desencriptar')
+        return false
+    }
+
+    if (text.split('').some(char => !char.match(/[a-z]/))) {
+        window.alert('Solo se permiten letras minúsculas')
+        return false
+    }
+
+    return true
+
+}
+
 encryptButton.addEventListener('click', () => {
     const text = input.value
 
-    if (!text) {
-        window.alert('Ingrese un texto para encriptar')
+    if (!validateInput(text)) {
         return
     }
 
@@ -62,8 +76,7 @@ encryptButton.addEventListener('click', () => {
 decryptButton.addEventListener('click', () => {
     const text = input.value
 
-    if (!text) {
-        window.alert('Ingrese un texto para desencriptar')
+    if (!validateInput(text)) {
         return
     }
 
