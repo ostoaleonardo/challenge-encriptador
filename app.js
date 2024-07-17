@@ -55,7 +55,7 @@ const validateInput = (text) => {
     }
 
     if (text.split('').some(char => !char.match(/[a-z]/))) {
-        window.alert('Solo se permiten letras minúsculas')
+        window.alert('Solo se permiten letras minúsculas sin acentos ni caracteres especiales')
         return false
     }
 
