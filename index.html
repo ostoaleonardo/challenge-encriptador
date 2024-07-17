@@ -12,19 +12,20 @@
 <body>
     <main>
         <section id="input-section">
-            <input id="input" type="text" placeholder="Ingrese tu texto aqui">
+            <textarea id="input" rows="5" placeholder="Ingrese tu texto aqui"></textarea>
+            <button id="copy-input" class="copy-button">Copiar</button>
         </section>
         <section id="output-section">
             <span id="output">
-                Ingresa un texto que desees encriptar o desencriptar.
+                Ingresa un texto para encriptar o desencriptar.
             </span>
+            <button id="copy-output" class="copy-button">Copiar</button>
         </section>
         <section id="buttons-section">
             <span>⚫ Solo letras minúsculas y sin acentos.</span>
             <div>
                 <button id="encrypt">Encriptar</button>
                 <button id="decrypt">Desencriptar</button>
-                <button id="invert"> Invertir</button>
             </div>
         </section>
         <footer>

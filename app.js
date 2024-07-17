@@ -13,9 +13,6 @@
 // Debe ser posible desencriptar una palabra encriptada a su versión original
 // Por ejemplo: "gato" => "gaitober" gaitober" => "gato"
 
-// Campos para inserción del texto que será encriptado o desencriptado.
-// El resultado debe ser mostrado en la pantalla.
-
 const KEYS = {
     a: 'ai',
     e: 'enter',
@@ -32,69 +29,58 @@ const KEYS_REVERSE = {
     ufat: 'u'
 }
 
-const input = document.querySelector('input')
+const input = document.querySelector('textarea')
 const output = document.getElementById('output')
 const encryptButton = document.getElementById('encrypt')
 const decryptButton = document.getElementById('decrypt')
-const invertButton = document.getElementById('invert')
+const copyInput = document.getElementById('copy-input')
+const copyOutput = document.getElementById('copy-output')
 
 const encrypt = (text) => {
-    const newText = text
+    return text
         .split('')
         .map(char => KEYS[char] ? KEYS[char] : char)
         .join('')
-
-    return newText
 }
 
 const decrypt = (text) => {
-    const newText = text
+    return text
         .replace(/ai|enter|imes|ober|ufat/g, match => KEYS_REVERSE[match])
-
-    return newText
-
-
-    // let newText = ''
-
-    // for (let i = 0; i < text.length; i++) {
-    //     if (text[i] === 'a' && text[i + 1] === 'i') {
-    //         newText += 'a'
-    //         i++
-    //     } else if (text[i] === 'e' && text[i + 1] === 'n' && text[i + 2] === 't' && text[i + 3] === 'e' && text[i + 4] === 'r') {
-    //         newText += 'e'
-    //         i += 4
-    //     } else if (text[i] === 'i' && text[i + 1] === 'm' && text[i + 2] === 'e' && text[i + 3] === 's') {
-    //         newText += 'i'
-    //         i += 3
-    //     } else if (text[i] === 'o' && text[i + 1] === 'b' && text[i + 2] === 'e' && text[i + 3] === 'r') {
-    //         newText += 'o'
-    //         i += 3
-    //     } else if (text[i] === 'u' && text[i + 1] === 'f' && text[i + 2] === 'a' && text[i + 3] === 't') {
-    //         newText += 'u'
-    //         i += 3
-    //     } else {
-    //         newText += text[i]
-    //     }
-    // }
-
-    // return newText
 }
 
 encryptButton.addEventListener('click', () => {
     const text = input.value
-    const encryptedText = encrypt(text)
 
-    output.textContent = encryptedText
+    if (!text) {
+        window.alert('Ingrese un texto para encriptar')
+        return
+    }
+
+    output.textContent = encrypt(text)
 })
 
 decryptButton.addEventListener('click', () => {
     const text = input.value
-    const decryptedText = decrypt(text)
 
-    output.textContent = decryptedText
+    if (!text) {
+        window.alert('Ingrese un texto para desencriptar')
+        return
+    }
+
+    output.textContent = decrypt(text)
 })
 
-invertButton.addEventListener('click', () => {
-    const outputText = output.textContent
-    input.value = outputText.trim()
+const copyToClipboard = (text) => {
+    if (text) {
+        navigator.clipboard.writeText(text)
+        window.alert('Texto copiado en el portapapeles')
+    }
+}
+
+copyInput.addEventListener('click', () => {
+    copyToClipboard(input.value)
+})
+
+copyOutput.addEventListener('click', () => {
+    copyToClipboard(output.textContent.trim())
 })
